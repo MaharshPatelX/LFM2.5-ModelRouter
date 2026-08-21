@@ -47,7 +47,82 @@ This design keeps both GPU and system-memory use bounded:
 | Parts 7–11 model training and evaluation | Local RX 7900 XTX |
 | Parts 12–13 replay and online policies | CPU first; local GPU only for neural components |
 | Parts 14–15 external tests and ablations | Local GPU in queued, resumable runs |
-| Part 16 release verification | Local reproduction plus optional rented Nvidia cross-check |
+| Part 16 release verification | Local reproduction plus optional rented NVIDIA cross-check |
+
+## Staged engineering workflow
+
+GPU-dependent work has three separate states. They must not be treated as the
+same thing:
+
+| State | Meaning | Evidence |
+|---|---|---|
+| Implementation ready | Interfaces and code exist and pass CPU tests on tiny deterministic data | Unit tests, type checks and a CPU smoke command |
+| Hardware validated | The same code completes bounded forward and backward work on the RX 7900 XTX | Recorded device, software revisions, memory, throughput and 100-step result |
+| Experiment complete | The real configuration finishes on the intended split and saves reproducible artifacts | Resolved config, checkpoint, metrics, hashes and run report |
+
+A GPU-dependent project part cannot be marked **Done** from CPU tests alone.
+CPU tests let development continue before the GPU arrives; the hardware and
+experiment gates still have to pass later.
+
+## What can be implemented before GPU validation
+
+| Part | Safe work before the GPU arrives | Work that still requires real validation |
+|---:|---|---|
+| 5 | Complete all baseline policies, metrics and CPU tests | Optional acceleration only |
+| 6 | Encoder interface, device configuration, cache format and CPU smoke test | ROCm loading, VRAM, throughput and backward pass |
+| 7 | Profile schemas, encoders and tests with synthetic embeddings | Neural-profile training at real scale |
+| 8 | Prediction heads, losses, masking, trainer and tiny-data tests | Full training, calibration and tuning |
+| 9 | Complete registry, constraints, price logic and optimizer on CPU | Performance check with real predictions |
+| 10 | Evaluation metrics, artifact writers and figure code | Reports from trained checkpoints |
+| 11 | Cold-start protocol and leakage assertions | Held-out-model training runs |
+| 12 | Complete deterministic replay simulator on CPU | Scale and performance checks |
+| 13 | Bandit interfaces, budget controller and synthetic replay tests | Neural-policy and long replay experiments |
+| 14 | Adapter contracts after each source/license audit | Real external evaluation |
+| 15 | Ablation scheduler, seed handling and statistics code | Multi-seed experiment campaign |
+| 16 | Release templates and reproducibility command | Final claims, figures, model card and weights |
+
+This table authorizes scaffolding and bounded tests, not one giant unvalidated
+implementation. Later interfaces should be built only after the earlier
+contract they consume has stabilized.
+
+## Validation ladder
+
+Every learned component advances through the same sequence:
+
+1. Validate configuration and schemas without loading a model.
+2. Run deterministic unit tests using tiny fixtures or synthetic embeddings.
+3. Run one CPU forward pass.
+4. Run one training batch and verify finite losses and gradients.
+5. Run the RX 7900 XTX hardware acceptance test.
+6. Run 100 optimizer steps and verify memory remains bounded.
+7. Run one complete epoch with checkpoint/resume enabled.
+8. Run the full configuration, then multi-seed and ablation jobs.
+
+A failure returns to the smallest stage that reproduces it. Expensive runs do
+not begin while a cheaper stage is failing.
+
+## Device-neutral code rules
+
+- Select `auto`, `cpu` or `cuda` through configuration; do not scatter device
+  checks throughout model code.
+- Do not hard-code NVIDIA-only package imports in shared modules.
+- Keep dtype and mixed-precision policy in one runtime configuration.
+- Make CPU fixtures small enough for normal CI.
+- Use fake embeddings to test downstream model logic without loading LFM.
+- Save optimizer, scheduler, scaler, seed and data position for resumable runs.
+- Log the physical GPU name, driver, ROCm, PyTorch and model revisions.
+- Keep correctness tests separate from throughput benchmarks.
+
+## Immediate pre-GPU sequence
+
+The GPU arrival does not justify building Parts 5–16 in one untested change.
+The immediate order is:
+
+1. Complete Part 5 end to end on CPU.
+2. Define Part 6's encoder interface, revision-aware cache and device contract.
+3. Add CPU fixtures and the bounded hardware-acceptance command.
+4. Validate the interface on the RX 7900 XTX when it is installed.
+5. Continue to Part 7 only after the Part 6 contract and artifacts are stable.
 
 ## Hardware acceptance gate
 
@@ -80,7 +155,7 @@ A rented GPU is allowed only when one of these conditions is recorded:
 
 - A required operation is unsupported by the validated local ROCm stack.
 - A deadline makes a long multi-seed queue impractical on one local GPU.
-- Final release verification needs an independent Nvidia/CUDA run.
+- Final release verification needs an independent NVIDIA/CUDA run.
 
 Every cloud run must use the same repository command and saved configuration
 as the local run. Checkpoints and aggregate results are copied back before the
