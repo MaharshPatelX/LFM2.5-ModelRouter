@@ -1,0 +1,8 @@
+[project]
+name = "LFM2.5-ModelRouter"
+seed = 3407
+
+[paths]
+data_dir = "data"
+artifacts_dir = "artifacts"
+reports_dir = "reports"
