@@ -3,8 +3,10 @@
 | Tracker summary | Current value |
 |---|---|
 | Last updated | 2026-08-21 |
-| Current phase | Part 3 implementation is complete locally; review and merge are next |
-| Core progress | 3 of 17 parts complete (Parts 0–16) |
+| Current phase | Part 5 — Baseline Suite is next |
+| Core progress | 5 of 17 parts complete (Parts 0–16) |
+| Active model scope | `LFM2.5-ModelRouter-350M` only |
+| Compute plan | Local RX 7900 XTX 24 GB VRAM with existing 16 GB RAM |
 | Optional work | Part 17 is deferred until the MVP is complete |
 
 This file is the quick status board for the project. The
@@ -29,9 +31,9 @@ part's requirements and completion gate.
 | 0 | Project Contract and Scope | ✅ Done | Scope and research question are documented |
 | 1 | Reproducible Repository Foundation | ✅ Done | [PR #1](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/1) merged; CI passed |
 | 2 | Dataset Source Audit and Ingestion | ✅ Done | [PR #6](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/6) merged; pinned ingestion checks passed |
-| 3 | Canonical Data Layer | 🚧 **In progress** | Six real tables built and validated; review and merge are pending |
-| 4 | Deduplication and Leakage-Safe Splits | 🧩 **Partial** | Five real manifests generated; temporal is explicitly unsupported because source dates do not exist |
-| 5 | Baseline Suite | ⬜ Pending | Complete Part 4 first |
+| 3 | Canonical Data Layer | ✅ Done | [PR #7](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/7) merged; six real tables validated |
+| 4 | Deduplication and Leakage-Safe Splits | ✅ Done | [PR #7](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/7) merged; five real manifests plus an explicit unsupported-temporal artifact |
+| 5 | Baseline Suite | ➡️ **Next** | Implement simple and learned baselines on the Part 4 manifests |
 | 6 | LFM Query Encoder | ⬜ Pending | Complete Part 5 first |
 | 7 | Candidate Model Profile System | ⬜ Pending | Complete Part 6 first |
 | 8 | Multi-Outcome Predictor | ⬜ Pending | Complete Part 7 first |
@@ -45,36 +47,30 @@ part's requirements and completion gate.
 | 16 | Research Release | ⬜ Pending | Complete Part 15 first |
 | 17 | Later Extensions | 💤 Deferred | Consider only after the MVP release |
 
-## Part 3 Local Completion Checklist
+## Merged Data Foundation
 
-- [x] Define the six canonical table schemas.
-- [x] Build the canonical query table from pinned xRouteBench rows.
-- [x] Build the canonical model registry with stable IDs, families, and aliases.
-- [x] Build the outcome table with query/model references and preserved source fields.
-- [x] Build the price-history, probe-profile, and online-route-log schemas.
-- [x] Add understandable validation for required fields, ranges, IDs, and relationships.
-- [x] Add canonical Parquet writers and bounded JSONL debug exports.
-- [x] Add tested price recomputation from token counts and price snapshots.
-- [x] Save generated canonical data beneath ignored `data/processed/` storage.
-- [x] Pass every Part 3 completion gate in the project blueprint locally.
-- [ ] Review, open and merge the pull request before marking Part 3 done.
+- [x] Store real data in portable repository-local ignored directories.
+- [x] Build and validate all six canonical Parquet tables.
+- [x] Preserve stable IDs, raw fields, model aliases and price snapshots.
+- [x] Generate five real leakage-safe split manifests.
+- [x] Record temporal as unsupported instead of inventing source dates.
+- [x] Recreate all 21 generated artifacts byte-for-byte.
+- [x] Merge Parts 3 and 4 in PR #7 with Python 3.11 and 3.12 CI passing.
 
-## Part 4 Prework Already Completed
+## Next Part Checklist — Part 5
 
-- [x] Keep real data in portable, repository-local ignored directories.
-- [x] Support an optional external-storage override without hard-coded paths.
-- [x] Implement exact and normalized prompt hashing.
-- [x] Implement deterministic near-duplicate checks and audit counts.
-- [x] Implement source-ID and synthetic-lineage grouping.
-- [x] Implement model alias and family validation.
-- [x] Isolate complete probe clusters from final test traffic.
-- [x] Implement all six split strategies.
-- [x] Add deterministic manifests and a generated deduplication report.
-- [x] Add unit tests for reproducibility and leakage boundaries.
-- [x] Complete Part 3 canonical Parquet tables and JSONL debug exports locally.
-- [x] Document temporal as unsupported because the pinned source has no dates.
-- [x] Generate and validate real xRouteBench manifests in `data/processed/part4/`.
-- [ ] Merge the Part 4 pull request and mark Part 4 as done here.
+- [ ] Define one shared evaluation contract and candidate pool for every baseline.
+- [ ] Implement random, cheapest and largest/most-expensive policies.
+- [ ] Implement best-single-model and per-domain-best policies using only training data.
+- [ ] Implement best-quality and cheapest-successful oracle upper bounds.
+- [ ] Add logistic-regression, small-MLP and fixed-model-ID learned baselines.
+- [ ] Evaluate every method on the same Part 4 split manifest and price snapshot.
+- [ ] Save a baseline result table, quality-cost plot and oracle-gap report.
+- [ ] Add deterministic tests and a reproducible baseline command.
+
+The [local compute plan](COMPUTE_PLAN.md) fixes the active scope at 350M and
+uses the incoming 24 GB RX 7900 XTX with the existing 16 GB of host RAM. Part 5
+remains CPU-first, so hardware arrival does not block the next implementation.
 
 ## How to Maintain This Tracker
 
