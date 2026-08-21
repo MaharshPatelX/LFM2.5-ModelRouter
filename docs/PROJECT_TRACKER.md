@@ -80,3 +80,6 @@ remains CPU-first, so hardware arrival does not block the next implementation.
 4. Add the merged pull request link in the evidence column.
 5. Move **Next** to the following part in the same tracker update.
 6. Update the date and progress count whenever a status changes.
+7. For GPU-dependent parts, distinguish implementation-ready code from
+   hardware-validated and experiment-complete work using the
+   [staged engineering workflow](COMPUTE_PLAN.md#staged-engineering-workflow).
