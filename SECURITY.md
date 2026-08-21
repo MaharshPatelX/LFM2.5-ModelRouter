@@ -2,7 +2,10 @@
 
 ## Reporting a vulnerability
 
-Do not open a public issue for a suspected vulnerability, exposed credential, or private-data leak. Use GitHub's private vulnerability reporting or Security Advisory workflow for this repository.
+Do not use an issue, discussion, or pull request for a suspected vulnerability,
+exposed credential, or private-data leak. Use GitHub's private vulnerability
+reporting for this repository so the report remains visible only to the owner
+and authorized maintainers.
 
 Include the affected revision, reproduction steps, impact, and any suggested mitigation. Do not include real user prompts, credentials, or restricted dataset records in the report.
 

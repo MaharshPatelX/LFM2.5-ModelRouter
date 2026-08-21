@@ -112,8 +112,14 @@ No results are reported yet. Results will be added only after the dataset pipeli
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Please do not commit private prompts, provider credentials, model weights, or downloaded benchmark contents.
+This is an owner-maintained project. Pull requests are restricted to repository
+collaborators. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development and
+data-handling rules.
 
 ## License
 
-A code license has not yet been selected. Until a `LICENSE` file is added, default copyright applies. This does not change the separate licenses of Liquid AI models or upstream datasets.
+The original code and documentation in this repository are licensed under the
+[Apache License 2.0](LICENSE). Upstream datasets, models, and third-party
+artifacts retain their own licenses and usage conditions. In particular, this
+license does not grant permission to redistribute xRouteBench rows or Liquid AI
+model artifacts.
