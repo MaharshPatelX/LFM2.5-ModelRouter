@@ -6,6 +6,7 @@
 **Proposed paper title:** **LFM2.5-ModelRouter: Sparse Cold-Start Routing for Evolving LLM Portfolios**
 **Primary encoder:** `LiquidAI/LFM2.5-Encoder-350M`
 **Detailed research reference:** [`RESEARCH_HANDOFF.md`](RESEARCH_HANDOFF.md)
+**Current progress:** [`PROJECT_TRACKER.md`](PROJECT_TRACKER.md)
 
 This document is the practical build order for the project. Each numbered part is a real system component or a required research stage. We will follow the parts in order and will not treat a later part as complete until its entry conditions are satisfied.
 
