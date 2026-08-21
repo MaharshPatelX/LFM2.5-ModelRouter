@@ -2,10 +2,11 @@
 
 ## Current status
 
-The reusable Part 4 engine is implemented on the
-`codex/leakage-safe-splits` branch. It now consumes the real Part 3 canonical
-tables and generates five leakage-safe xRouteBench manifests, a common
-deduplication manifest and an audit report.
+Part 4 is complete. Its reusable engine and real xRouteBench validation were
+merged into `main` by
+[PR #7](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/7). It consumes
+the Part 3 canonical tables and generates five leakage-safe xRouteBench
+manifests, a common deduplication manifest and an audit report.
 
 The pinned xRouteBench source schema does not contain query timestamps or model
 release dates. The temporal strategy therefore requires trustworthy provenance
@@ -128,6 +129,8 @@ forms 14,688 atomic clusters, including 435 clusters with multiple queries.
 Five real strategies pass their leakage checks. Temporal is the sole
 unsupported strategy because all 15,339 eligible queries lack `observed_at`.
 
-## Remaining completion gate
+## Completion status
 
-- Review and merge the pull request, then update the tracker to Done.
+The reproducibility and leakage gates pass, and the implementation is merged.
+The temporal limitation is a property of xRouteBench's missing source dates,
+not unfinished split-engine work.

@@ -2,9 +2,10 @@
 
 ## Current status
 
-Part 3 is implemented and validated locally on the
-`codex/leakage-safe-splits` branch. The only remaining project-management gate
-is review and merge.
+Part 3 is complete. Its implementation and real-data validation were merged
+into `main` by
+[PR #7](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/7), with both
+Python 3.11 and 3.12 CI passing.
 
 The builder reads the 41 pinned xRouteBench Parquet files from `data/raw/`,
 normalizes them into six versioned tables, validates the complete result in

@@ -4,9 +4,9 @@
 
 Research framework for routing prompts across evolving LLM portfolios with a compact Liquid AI encoder.
 
-> **Research status:** Pre-alpha. Parts 0–2 are merged. Part 3 is implemented and validated locally, and Part 4 now produces five real leakage-safe xRouteBench manifests plus an explicit unsupported-temporal record. Review and merge are still pending. No benchmark results or trained router checkpoint are claimed yet.
+> **Research status:** Pre-alpha. Parts 0–4 are merged. The six canonical tables and five real leakage-safe xRouteBench manifests are reproducible; temporal is explicitly unsupported because the source has no dates. Part 5's baseline suite is next. No benchmark results or trained router checkpoint are claimed yet.
 >
-> **Project progress:** [3 of 17 core parts merged — view the tracker](docs/PROJECT_TRACKER.md)
+> **Project progress:** [5 of 17 core parts merged — view the tracker](docs/PROJECT_TRACKER.md)
 
 ## Research question
 
@@ -38,7 +38,7 @@ Development order:
 8. Online bandit adapter and budget pacing.
 9. External benchmarks, ablations, and research release.
 
-See the [project tracker](docs/PROJECT_TRACKER.md) for current progress, the [project blueprint](docs/PROJECT_BLUEPRINT.md) for the full ordered build plan, the [Part 3 canonical-data guide](docs/PART3_CANONICAL_DATA.md) for the real table build, the [Part 4 split contract](docs/PART4_SPLITS.md) for leakage rules and storage setup, and the [research handoff](docs/RESEARCH_HANDOFF.md) for the literature and dataset review.
+See the [project tracker](docs/PROJECT_TRACKER.md) for current progress, the [project blueprint](docs/PROJECT_BLUEPRINT.md) for the full ordered build plan, the [local compute plan](docs/COMPUTE_PLAN.md) for the 350M-only hardware policy, the [Part 3 canonical-data guide](docs/PART3_CANONICAL_DATA.md) for the real table build, the [Part 4 split contract](docs/PART4_SPLITS.md) for leakage rules and storage setup, and the [research handoff](docs/RESEARCH_HANDOFF.md) for the literature and dataset review.
 
 ## Repository layout
 

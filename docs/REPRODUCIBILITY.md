@@ -7,6 +7,19 @@
 - Heavy ML dependencies will be added only after model and platform compatibility checks.
 - CI runs formatting, linting, static types, tests, and package builds.
 
+## Local compute policy
+
+- The active checkpoint scale is 350M only; larger variants are future work.
+- Part 5 is CPU-first.
+- Parts 6 onward use the local RX 7900 XTX with 24 GB VRAM when acceleration is needed.
+- The existing 16 GB of host RAM is the accepted starting configuration.
+- No memory upgrade is required without measured paging or an out-of-memory failure.
+- Cloud GPUs are a documented fallback, not the default environment.
+
+The bounded smoke test, memory controls and cloud fallback conditions are in
+the [local compute plan](COMPUTE_PLAN.md). The exact ROCm, PyTorch and encoder
+revisions must be pinned only after the Part 6 hardware acceptance test passes.
+
 ## Configuration
 
 Repository defaults live in `configs/base.toml`. Every experiment must save the fully resolved configuration used for the run.
