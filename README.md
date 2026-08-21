@@ -4,9 +4,9 @@
 
 Research framework for routing prompts across evolving LLM portfolios with a compact Liquid AI encoder.
 
-> **Research status:** Pre-alpha. The repository foundation is complete and the xRouteBench source audit is next. No benchmark results or trained router checkpoint are claimed yet.
+> **Research status:** Pre-alpha. The Part 2 xRouteBench audit and ingestion implementation is complete and awaiting review/merge. No benchmark results or trained router checkpoint are claimed yet.
 >
-> **Project progress:** [2 of 17 core parts complete — view the tracker](docs/PROJECT_TRACKER.md)
+> **Project progress:** [2 of 17 core parts merged; Part 2 implementation complete — view the tracker](docs/PROJECT_TRACKER.md)
 
 ## Research question
 

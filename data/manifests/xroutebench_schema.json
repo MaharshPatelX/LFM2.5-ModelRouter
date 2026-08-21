@@ -1,0 +1,1153 @@
+{
+  "schema_version": 1,
+  "dataset_id": "ulab-ai/xRouteBench",
+  "revision": "ea4b6e1b29d9a734f55f0a637baf326bad6aa681",
+  "verified_date": "2026-08-21",
+  "source": "Pinned Parquet files; column schemas cross-checked with the Hugging Face rows API.",
+  "null_count_semantics": "Only columns with non-zero null counts are listed. Every unlisted column has zero nulls in that split.",
+  "schemas_identical_across_splits": true,
+  "configs": [
+    {
+      "name": "llm_candidates",
+      "kind": "model_registry",
+      "rows": 18,
+      "columns": 7,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 18,
+          "null_counts": {}
+        }
+      ],
+      "fields": [
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "type": "string"
+        },
+        {
+          "name": "input_price_per_1m",
+          "type": "float64"
+        },
+        {
+          "name": "output_price_per_1m",
+          "type": "float64"
+        },
+        {
+          "name": "service",
+          "type": "string"
+        },
+        {
+          "name": "api_model_id",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "llmrouter_generic",
+      "kind": "routing_outcomes",
+      "rows": 147924,
+      "columns": 14,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 80802,
+          "null_counts": {
+            "choices": 27702,
+            "task_id": 54900
+          }
+        },
+        {
+          "name": "test",
+          "rows": 67122,
+          "null_counts": {
+            "choices": 19422,
+            "task_id": 46800
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "string"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "float64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "llmrouter_generic_queries",
+      "kind": "queries",
+      "rows": 8741,
+      "columns": 6,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 4489,
+          "null_counts": {
+            "choices": 1539,
+            "task_id": 3050
+          }
+        },
+        {
+          "name": "valid",
+          "rows": 523,
+          "null_counts": {
+            "choices": 179,
+            "task_id": 350
+          }
+        },
+        {
+          "name": "test",
+          "rows": 3729,
+          "null_counts": {
+            "choices": 1079,
+            "task_id": 2600
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "memory_locomo",
+      "kind": "routing_outcomes",
+      "rows": 21582,
+      "columns": 16,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 15930,
+          "null_counts": {
+            "choices": 15930,
+            "task_id": 15930
+          }
+        },
+        {
+          "name": "test",
+          "rows": 5652,
+          "null_counts": {
+            "choices": 5652,
+            "task_id": 5652
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "float64"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "float64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        },
+        {
+          "name": "category",
+          "type": "int64"
+        },
+        {
+          "name": "conversation_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "memory_locomo_queries",
+      "kind": "queries",
+      "rows": 1540,
+      "columns": 8,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 885,
+          "null_counts": {
+            "choices": 885,
+            "task_id": 885
+          }
+        },
+        {
+          "name": "valid",
+          "rows": 341,
+          "null_counts": {
+            "choices": 341,
+            "task_id": 341
+          }
+        },
+        {
+          "name": "test",
+          "rows": 314,
+          "null_counts": {
+            "choices": 314,
+            "task_id": 314
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "float64"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "conversation_id",
+          "type": "string"
+        },
+        {
+          "name": "category",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "memory_longmemeval",
+      "kind": "routing_outcomes",
+      "rows": 6804,
+      "columns": 16,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 4986,
+          "null_counts": {
+            "choices": 4986,
+            "task_id": 4986
+          }
+        },
+        {
+          "name": "test",
+          "rows": 1818,
+          "null_counts": {
+            "choices": 1818,
+            "task_id": 1818
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "float64"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "float64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        },
+        {
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "name": "conversation_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "memory_longmemeval_queries",
+      "kind": "queries",
+      "rows": 470,
+      "columns": 8,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 277,
+          "null_counts": {
+            "choices": 277,
+            "task_id": 277
+          }
+        },
+        {
+          "name": "valid",
+          "rows": 92,
+          "null_counts": {
+            "choices": 92,
+            "task_id": 92
+          }
+        },
+        {
+          "name": "test",
+          "rows": 101,
+          "null_counts": {
+            "choices": 101,
+            "task_id": 101
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "float64"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "conversation_id",
+          "type": "string"
+        },
+        {
+          "name": "category",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "multimodal_geometry3k",
+      "kind": "routing_outcomes",
+      "rows": 9738,
+      "columns": 14,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 8640,
+          "null_counts": {
+            "task_id": 8640
+          }
+        },
+        {
+          "name": "test",
+          "rows": 1098,
+          "null_counts": {
+            "task_id": 1098
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "int64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "multimodal_geometry3k_queries",
+      "kind": "queries",
+      "rows": 601,
+      "columns": 6,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 480,
+          "null_counts": {
+            "task_id": 480
+          }
+        },
+        {
+          "name": "valid",
+          "rows": 60,
+          "null_counts": {
+            "task_id": 60
+          }
+        },
+        {
+          "name": "test",
+          "rows": 61,
+          "null_counts": {
+            "task_id": 61
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "multimodal_mathvista",
+      "kind": "routing_outcomes",
+      "rows": 16200,
+      "columns": 14,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 14400,
+          "null_counts": {
+            "task_id": 14400
+          }
+        },
+        {
+          "name": "test",
+          "rows": 1800,
+          "null_counts": {
+            "task_id": 1800
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "int64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "multimodal_mathvista_queries",
+      "kind": "queries",
+      "rows": 1000,
+      "columns": 6,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 800,
+          "null_counts": {
+            "task_id": 800
+          }
+        },
+        {
+          "name": "valid",
+          "rows": 100,
+          "null_counts": {
+            "task_id": 100
+          }
+        },
+        {
+          "name": "test",
+          "rows": 100,
+          "null_counts": {
+            "task_id": 100
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "personalized",
+      "kind": "pairwise_preferences",
+      "rows": 2772,
+      "columns": 12,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 2464,
+          "null_counts": {}
+        },
+        {
+          "name": "test",
+          "rows": 308,
+          "null_counts": {}
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        },
+        {
+          "name": "model_1",
+          "type": "string"
+        },
+        {
+          "name": "model_2",
+          "type": "string"
+        },
+        {
+          "name": "answer_1",
+          "type": "string"
+        },
+        {
+          "name": "answer_2",
+          "type": "string"
+        },
+        {
+          "name": "judge",
+          "type": "int64"
+        },
+        {
+          "name": "persona_id",
+          "type": "int64"
+        },
+        {
+          "name": "persona",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "personalized_queries",
+      "kind": "queries",
+      "rows": 3080,
+      "columns": 6,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 2464,
+          "null_counts": {}
+        },
+        {
+          "name": "valid",
+          "rows": 308,
+          "null_counts": {}
+        },
+        {
+          "name": "test",
+          "rows": 308,
+          "null_counts": {}
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "timeseries",
+      "kind": "routing_outcomes",
+      "rows": 19854,
+      "columns": 14,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 17568,
+          "null_counts": {
+            "task_id": 17568
+          }
+        },
+        {
+          "name": "test",
+          "rows": 2286,
+          "null_counts": {
+            "task_id": 2286
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "int64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "timeseries_queries",
+      "kind": "queries",
+      "rows": 1223,
+      "columns": 6,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 976,
+          "null_counts": {
+            "task_id": 976
+          }
+        },
+        {
+          "name": "valid",
+          "rows": 120,
+          "null_counts": {
+            "task_id": 120
+          }
+        },
+        {
+          "name": "test",
+          "rows": 127,
+          "null_counts": {
+            "task_id": 127
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "video",
+      "kind": "routing_outcomes",
+      "rows": 4104,
+      "columns": 14,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 3618,
+          "null_counts": {}
+        },
+        {
+          "name": "test",
+          "rows": 486,
+          "null_counts": {}
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "list[string]"
+        },
+        {
+          "name": "task_id",
+          "type": "string"
+        },
+        {
+          "name": "model_name",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "name": "token_num",
+          "type": "int64"
+        },
+        {
+          "name": "input_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "response_time",
+          "type": "float64"
+        },
+        {
+          "name": "performance",
+          "type": "int64"
+        },
+        {
+          "name": "embedding_id",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "video_queries",
+      "kind": "queries",
+      "rows": 252,
+      "columns": 6,
+      "splits": [
+        {
+          "name": "train",
+          "rows": 201,
+          "null_counts": {}
+        },
+        {
+          "name": "valid",
+          "rows": 24,
+          "null_counts": {}
+        },
+        {
+          "name": "test",
+          "rows": 27,
+          "null_counts": {}
+        }
+      ],
+      "fields": [
+        {
+          "name": "task_name",
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "choices",
+          "type": "list[string]"
+        },
+        {
+          "name": "task_id",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

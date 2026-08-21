@@ -26,9 +26,13 @@ classifiers = [
 dependencies = []
 
 [project.optional-dependencies]
+data = [
+  "pyarrow>=23,<26",
+]
 dev = [
   "build>=1.2,<2",
   "mypy>=1.14,<3",
+  "pyarrow>=23,<26",
   "pytest>=8.3,<10",
   "pytest-cov>=6,<8",
   "ruff>=0.9,<1",
