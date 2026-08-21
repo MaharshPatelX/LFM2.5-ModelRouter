@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+
+# Environments
+.venv/
+venv/
+.python-version
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Data: manifests remain tracked; downloaded or transformed data does not
+data/raw/
+data/interim/
+data/processed/
+data/cache/
+*.arrow
+*.parquet
+
+# Model and experiment artifacts
+artifacts/
+checkpoints/
+models/
+runs/
+wandb/
+mlruns/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+
+# Generated notebook state
+.ipynb_checkpoints/
