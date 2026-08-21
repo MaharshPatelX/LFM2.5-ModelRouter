@@ -4,7 +4,9 @@
 
 Research framework for routing prompts across evolving LLM portfolios with a compact Liquid AI encoder.
 
-> **Research status:** Pre-alpha repository foundation. No benchmark results or trained router checkpoint are claimed yet.
+> **Research status:** Pre-alpha. The repository foundation is complete and the xRouteBench source audit is next. No benchmark results or trained router checkpoint are claimed yet.
+>
+> **Project progress:** [2 of 17 core parts complete — view the tracker](docs/PROJECT_TRACKER.md)
 
 ## Research question
 
@@ -36,7 +38,7 @@ Development order:
 8. Online bandit adapter and budget pacing.
 9. External benchmarks, ablations, and research release.
 
-See the [project blueprint](docs/PROJECT_BLUEPRINT.md) for the full ordered build plan and the [research handoff](docs/RESEARCH_HANDOFF.md) for the literature and dataset review.
+See the [project tracker](docs/PROJECT_TRACKER.md) for current progress, the [project blueprint](docs/PROJECT_BLUEPRINT.md) for the full ordered build plan, and the [research handoff](docs/RESEARCH_HANDOFF.md) for the literature and dataset review.
 
 ## Repository layout
 
@@ -102,4 +104,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Please do not commit private prompts, pr
 ## License
 
 A code license has not yet been selected. Until a `LICENSE` file is added, default copyright applies. This does not change the separate licenses of Liquid AI models or upstream datasets.
-
