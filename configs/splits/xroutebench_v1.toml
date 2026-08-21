@@ -1,0 +1,21 @@
+[manifest]
+version = "1.0.0"
+algorithm_version = "leakage-safe-splits-v1"
+
+[split]
+seed = 3407
+train_ratio = 0.80
+validation_ratio = 0.10
+test_ratio = 0.10
+
+[deduplication]
+normalization_version = "nfkc-casefold-whitespace-v1"
+near_duplicate_threshold = 0.90
+shingle_size = 3
+signature_size = 8
+max_bucket_size = 128
+max_candidate_pairs = 1000000
+
+[storage]
+root_environment_variable = "LFM_ROUTER_STORAGE_ROOT"
+use_project_root_by_default = true

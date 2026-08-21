@@ -4,9 +4,9 @@
 
 Research framework for routing prompts across evolving LLM portfolios with a compact Liquid AI encoder.
 
-> **Research status:** Pre-alpha. The Part 2 xRouteBench audit and ingestion implementation is complete and awaiting review/merge. No benchmark results or trained router checkpoint are claimed yet.
+> **Research status:** Pre-alpha. Parts 0–2 are merged. Part 3 is implemented and validated locally, and Part 4 now produces five real leakage-safe xRouteBench manifests plus an explicit unsupported-temporal record. Review and merge are still pending. No benchmark results or trained router checkpoint are claimed yet.
 >
-> **Project progress:** [2 of 17 core parts merged; Part 2 implementation complete — view the tracker](docs/PROJECT_TRACKER.md)
+> **Project progress:** [3 of 17 core parts merged — view the tracker](docs/PROJECT_TRACKER.md)
 
 ## Research question
 
@@ -38,7 +38,7 @@ Development order:
 8. Online bandit adapter and budget pacing.
 9. External benchmarks, ablations, and research release.
 
-See the [project tracker](docs/PROJECT_TRACKER.md) for current progress, the [project blueprint](docs/PROJECT_BLUEPRINT.md) for the full ordered build plan, and the [research handoff](docs/RESEARCH_HANDOFF.md) for the literature and dataset review.
+See the [project tracker](docs/PROJECT_TRACKER.md) for current progress, the [project blueprint](docs/PROJECT_BLUEPRINT.md) for the full ordered build plan, the [Part 3 canonical-data guide](docs/PART3_CANONICAL_DATA.md) for the real table build, the [Part 4 split contract](docs/PART4_SPLITS.md) for leakage rules and storage setup, and the [research handoff](docs/RESEARCH_HANDOFF.md) for the literature and dataset review.
 
 ## Repository layout
 
@@ -92,6 +92,19 @@ This repository does not commit downloaded benchmark data, model weights, API re
 - Experiment configurations and aggregate results.
 
 Each upstream dataset and model retains its own license and usage conditions.
+
+Downloads and generated data use ignored directories inside the cloned project
+by default, so moving or cloning the project requires no path changes:
+
+```text
+data/raw/          Downloads
+data/interim/      Temporary transformations
+data/processed/    Canonical tables, split manifests, and data reports
+data/cache/        Regenerable data caches
+```
+
+For unusually large runs, `LFM_ROUTER_STORAGE_ROOT` can optionally point to an
+absolute external directory. The same layout is created beneath that root.
 
 ## Results
 
