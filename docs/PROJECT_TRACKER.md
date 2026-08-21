@@ -3,7 +3,7 @@
 | Tracker summary | Current value |
 |---|---|
 | Last updated | 2026-08-21 |
-| Current phase | Part 2 — Dataset Source Audit and Ingestion |
+| Current phase | Part 2 — implementation complete; merge pending |
 | Core progress | 2 of 17 parts complete (Parts 0–16) |
 | Optional work | Part 17 is deferred until the MVP is complete |
 
@@ -27,8 +27,8 @@ part's requirements and completion gate.
 |---:|---|---|---|
 | 0 | Project Contract and Scope | ✅ Done | Scope and research question are documented |
 | 1 | Reproducible Repository Foundation | ✅ Done | [PR #1](https://github.com/MaharshPatelX/LFM2.5-ModelRouter/pull/1) merged; CI passed |
-| 2 | Dataset Source Audit and Ingestion | ➡️ **Next** | Produce the audit, manifest, schema snapshot, sample, adapter, and tests |
-| 3 | Canonical Data Layer | ⬜ Pending | Complete Part 2 first |
+| 2 | Dataset Source Audit and Ingestion | 🚧 **In progress** | Completion gates pass locally; merge the Part 2 PR |
+| 3 | Canonical Data Layer | ⬜ Pending | Merge Part 2 first |
 | 4 | Deduplication and Leakage-Safe Splits | ⬜ Pending | Complete Part 3 first |
 | 5 | Baseline Suite | ⬜ Pending | Complete Part 4 first |
 | 6 | LFM Query Encoder | ⬜ Pending | Complete Part 5 first |
@@ -46,15 +46,15 @@ part's requirements and completion gate.
 
 ## Next Part Checklist — Part 2
 
-- [ ] Pin the exact xRouteBench dataset revision.
-- [ ] Record source URLs, verification date, configurations, splits, files, row counts, columns, dtypes, and missingness.
-- [ ] Confirm download requirements, license terms, and redistribution rules.
-- [ ] Download and inspect a small sample before handling the full dataset.
-- [ ] Implement an ingestion adapter that preserves source values.
-- [ ] Save a machine-readable schema snapshot and dataset manifest.
-- [ ] Add a small legally redistributable fixture and deterministic loading tests.
-- [ ] Write `reports/xroutebench_audit.md`.
-- [ ] Verify every Part 2 completion gate in the blueprint.
+- [x] Pin the exact xRouteBench dataset revision.
+- [x] Record source URLs, verification date, configurations, splits, files, row counts, columns, dtypes, and missingness.
+- [x] Confirm download requirements, license terms, and redistribution rules.
+- [x] Download and inspect a small sample before handling the full dataset.
+- [x] Implement an ingestion adapter that preserves source values.
+- [x] Save a machine-readable schema snapshot and dataset manifest.
+- [x] Add a small legally redistributable fixture and deterministic loading tests.
+- [x] Write `reports/xroutebench_audit.md`.
+- [x] Verify every Part 2 completion gate in the blueprint.
 - [ ] Merge the Part 2 pull request and mark Part 2 as done here.
 
 ## How to Maintain This Tracker
