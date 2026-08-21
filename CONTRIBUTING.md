@@ -2,6 +2,16 @@
 
 LFM2.5-ModelRouter is currently a pre-alpha research project. Contributions should prioritize reproducibility, leakage prevention, and evidence over feature count.
 
+## Contribution access
+
+This repository is owner-maintained. Pull request creation is restricted to
+repository collaborators, and collaborator access is granted explicitly by the
+owner. Public forks may use the code under the Apache License 2.0, but they do
+not grant write or merge access to this repository.
+
+Security reports must follow [SECURITY.md](SECURITY.md) and must never be sent
+through a public issue or pull request.
+
 ## Set up the development environment
 
 Use Python 3.11 or 3.12:
@@ -45,7 +55,7 @@ Never commit:
 
 ## Pull requests
 
-Keep each pull request focused. Include:
+Authorized collaborators should keep each pull request focused. Include:
 
 - What changed and why.
 - The checks that were run.
