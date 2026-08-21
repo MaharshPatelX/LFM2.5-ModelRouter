@@ -15,8 +15,13 @@ from lfm_model_router.data.adapters.xroutebench import (
     load_xroutebench_manifest,
     sha256_file,
 )
+from lfm_model_router.storage import (
+    resolve_storage_root,
+    validate_data_path,
+)
 
-DEFAULT_MANIFEST = Path("data/manifests/xroutebench.json")
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_MANIFEST = REPOSITORY_ROOT / "data" / "manifests" / "xroutebench.json"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -29,7 +34,13 @@ def build_parser() -> argparse.ArgumentParser:
         "--data-root",
         type=Path,
         default=None,
-        help="Destination root; defaults to data/raw/xroutebench/<revision>.",
+        help="Exact destination root; otherwise uses the portable project storage root.",
+    )
+    parser.add_argument(
+        "--repository-root",
+        type=Path,
+        default=REPOSITORY_ROOT,
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--all",
@@ -91,7 +102,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     """Download either the smallest sample or the complete pinned source."""
     args = build_parser().parse_args(argv)
     manifest = load_xroutebench_manifest(args.manifest)
-    root = args.data_root or Path("data/raw/xroutebench") / manifest.revision
+    storage_root = resolve_storage_root(repository_root=args.repository_root)
+    if args.data_root is None:
+        root = storage_root / "data" / "raw" / "xroutebench" / manifest.revision
+    elif args.data_root.is_absolute():
+        root = args.data_root
+    else:
+        root = args.repository_root / args.data_root
+    root = validate_data_path(
+        path=root,
+        repository_root=args.repository_root,
+    )
     selected = _selected_files(manifest, download_all=args.all)
     for source_file in selected:
         print(_download(source_file, manifest=manifest, root=root))

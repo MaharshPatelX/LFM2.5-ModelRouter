@@ -1,7 +1,9 @@
 # Reports
 
-Research reports, compact result tables, and publication figures belong here
-when they can be regenerated from saved configurations and aggregate artifacts.
+Compact, publication-ready reports may be tracked here when they are safe to
+redistribute. Generated reports containing dataset IDs or detailed split
+statistics belong beneath the ignored `data/processed/part4/reports/`
+directory.
 
 The Part 2 source, schema, integrity, and license audit is documented in
 [`xroutebench_audit.md`](xroutebench_audit.md). No model benchmark results are
